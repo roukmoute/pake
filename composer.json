@@ -1,0 +1,40 @@
+{
+    "name": "roukmoute/pake",
+    "description": "A make-like build utility for PHP. A simple modern task runner.",
+    "type": "library",
+    "require": {
+        "php": ">= 7.3",
+        "symfony/console": "^4.3"
+    },
+    "require-dev": {
+        "friendsofphp/php-cs-fixer": "^2.15",
+        "phpunit/phpunit": "^8.4",
+        "roukmoute/dto-tester": "^0.3.0"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Mathias STRASSER",
+            "email": "contact@roukmoute.fr"
+        }
+    ],
+    "minimum-stability": "stable",
+    "config": {
+        "sort-packages": true
+    },
+    "autoload": {
+        "files": [ "runtime/Pake.php" ],
+        "psr-4": {
+            "Pake\\": "src/",
+            "Runtime\\": "Runtime/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "PHPUnit\\": "tests/phpunit"
+        }
+    },
+    "bin": [
+        "bin/pake"
+    ]
+}
