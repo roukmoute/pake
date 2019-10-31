@@ -1,0 +1,21 @@
+#!/usr/bin/env php
+<?php
+if (PHP_SAPI !== 'cli' && PHP_SAPI !== 'phpdbg') {
+    echo 'Warning: Pake should be invoked via the CLI version of PHP, not the ' . PHP_SAPI . ' SAPI' . PHP_EOL;
+}
+
+setlocale(LC_ALL, 'C');
+require __DIR__ . '/../vendor/autoload.php';
+
+use Pake\Console\Application;
+
+error_reporting(-1);
+if (defined('HHVM_VERSION')) {
+    sprintf('HHVM is not supported by Pake, please use PHP instead. Aborting.%s', PHP_EOL);
+    exit(1);
+}
+
+putenv('PAKE_BINARY='.realpath($_SERVER['argv'][0]));
+
+$application = new Application();
+$application->run();
